@@ -48,7 +48,7 @@
 
         // both right thumb keys
 
-        combo_accent {
+        combo_music {
             timeout-ms = <300>;
             key-positions = <32 33>;
             bindings = <&mo ACCENT>;
@@ -131,12 +131,12 @@
 
         // Used to type regional accents.
 
-        accent_layer {
+        music_layer {
             bindings = <
-&none        &none        &none        &kp IT_CEGR  &none          &none  &none  &none  &none  &none
-&kp IT_AGRV  &kp IT_IGRV  &kp IT_OGRV  &kp IT_EGRV  &kp IT_EACU    &none  &none  &none  &none  &none
-&none        &none        &none        &kp IT_UGRV  &none          &none  &none  &none  &none  &none
-                                       &none        &none          &none  &none
+&none  &none  &none  &none  &none    &none  &none             &kp C_VOL_DN    &kp C_VOL_UP  &none
+&none  &none  &none  &none  &none    &none  &kp C_PLAY_PAUSE  &kp C_PREVIOUS  &kp C_NEXT    &none
+&none  &none  &none  &none  &none    &none  &none             &none           &none         &none
+                     &none  &none    &none  &none
             >;
         };
 
