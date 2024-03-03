@@ -5,6 +5,7 @@
   */
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 &mt {
@@ -13,6 +14,40 @@
 };
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        bluetoothctl {
+            bindings = <&mo 5>;
+            key-positions = <31 30>;
+        };
+
+        baselyr {
+            bindings = <&tog 0>;
+            key-positions = <32 33>;
+        };
+
+        esc {
+            bindings = <&kp ESCAPE>;
+            key-positions = <0 1>;
+        };
+
+        tab {
+            bindings = <&kp TAB>;
+            key-positions = <10 11>;
+        };
+
+        megac {
+            bindings = <&kp LC(LS(C))>;
+            key-positions = <21 22>;
+        };
+
+        megav {
+            bindings = <&kp LS(LC(V))>;
+            key-positions = <22 23>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -58,6 +93,15 @@
 &kp A  &kp S  &kp D  &kp F  &kp G        &kp H          &kp J  &kp K      &kp L    &kp SINGLE_QUOTE
 &kp Z  &kp X  &kp C  &kp V  &kp B        &kp N          &kp M  &kp COMMA  &kp DOT  &kp SLASH
                      &mo 2  &kp SPACE    &kp BACKSPACE  &mo 1
+            >;
+        };
+
+        bluetooth {
+            bindings = <
+&trans  &trans  &trans  &bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 3  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans      &bt BT_SEL 1    &bt BT_SEL 4  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans      &bt BT_SEL 2    &trans        &trans  &trans  &trans  &trans
+                        &trans      &trans          &trans        &trans
             >;
         };
     };
