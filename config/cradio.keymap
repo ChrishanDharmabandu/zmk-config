@@ -89,10 +89,10 @@
 
         gaming {
             bindings = <
-&kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y          &kp U  &kp I      &kp O    &kp P
-&kp A  &kp S  &kp D  &kp F  &kp G        &kp H          &kp J  &kp K      &kp L    &kp SINGLE_QUOTE
-&kp Z  &kp X  &kp C  &kp V  &kp B        &kp N          &kp M  &kp COMMA  &kp DOT  &kp SLASH
-                     &mo 2  &kp SPACE    &kp BACKSPACE  &mo 1
+&kp TAB    &kp Q  &kp W  &kp E         &mt R T      &kp Y   &kp U   &kp I      &kp O    &kp P
+&kp LSHFT  &kp A  &kp S  &kp D         &mt F G      &kp H   &kp J   &kp K      &kp L    &kp SINGLE_QUOTE
+&kp LCTRL  &kp Z  &kp X  &kp C         &kp V        &kp N   &kp M   &kp COMMA  &kp DOT  &kp SLASH
+                         &kp LEFT_ALT  &kp SPACE    &tog 0  &trans
             >;
         };
 
