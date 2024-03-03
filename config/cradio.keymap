@@ -89,17 +89,17 @@
 
         gaming {
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E         &mt R T      &kp Y   &kp U   &kp I      &kp O    &kp P
-&kp LSHFT  &kp A  &kp S  &kp D         &mt F G      &kp H   &kp J   &kp K      &kp L    &kp SINGLE_QUOTE
-&kp LCTRL  &kp Z  &kp X  &kp C         &kp V        &kp N   &kp M   &kp COMMA  &kp DOT  &kp SLASH
-                         &kp LEFT_ALT  &kp SPACE    &tog 0  &trans
+&kp TAB    &kp Q  &kp W  &kp E         &mt R T      &kp Y  &kp U   &kp I      &kp O    &kp P
+&kp LSHFT  &kp A  &kp S  &kp D         &mt F G      &kp H  &kp J   &kp K      &kp L    &kp SINGLE_QUOTE
+&kp LCTRL  &kp Z  &kp X  &kp C         &kp V        &kp N  &kp M   &kp COMMA  &kp DOT  &kp SLASH
+                         &kp LEFT_ALT  &kp SPACE    &to 0  &trans
             >;
         };
 
         bluetooth {
             bindings = <
-&trans  &trans  &trans  &bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 3  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans      &bt BT_SEL 1    &bt BT_SEL 4  &trans  &trans  &trans  &trans
+&to 0   &trans  &trans  &bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 3  &trans  &trans  &trans  &trans
+&to 4   &trans  &trans  &trans      &bt BT_SEL 1    &bt BT_SEL 4  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans      &bt BT_SEL 2    &trans        &trans  &trans  &trans  &trans
                         &trans      &trans          &trans        &trans
             >;
