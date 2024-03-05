@@ -72,10 +72,10 @@
 
         sym {
             bindings = <
-&kp GRAVE             &kp TILDE              &kp LBRC          &kp RBRC           &kp MINUS    &kp UNDERSCORE  &kp LBKT        &kp RBKT   &kp LPAR      &kp RPAR
-&kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp EQUAL    &kp PLUS        &sk LEFT_SHIFT  &sk LALT   &sk LEFT_GUI  &sk LEFT_CONTROL
-&kp SEMICOLON         &kp COLON              &kp BACKSLASH     &kp PIPE           &trans       &kp EQUAL       &kp PLUS        &kp ASTRK  &kp QUESTION  &kp TILDE
-                                                               &mo 3              &kp SPACE    &kp BACKSPACE   &trans
+&kp GRAVE             &kp TILDE  &kp LBRC              &kp RBRC               &kp MINUS    &kp UNDERSCORE  &trans          &trans    &trans        &trans
+&kp NON_US_BACKSLASH  &kp PIPE   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp EQUAL    &kp PLUS        &sk LEFT_SHIFT  &sk LALT  &sk LEFT_GUI  &sk LEFT_CONTROL
+&kp SEMICOLON         &kp COLON  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans       &trans          &trans          &trans    &trans        &trans
+                                                       &mo 3                  &kp SPACE    &kp BACKSPACE   &trans
             >;
         };
 
