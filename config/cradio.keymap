@@ -32,11 +32,6 @@
             key-positions = <0 1>;
         };
 
-        tab {
-            bindings = <&kp TAB>;
-            key-positions = <10 11>;
-        };
-
         megac {
             bindings = <&kp LC(LS(C))>;
             key-positions = <21 22>;
@@ -45,6 +40,21 @@
         megav {
             bindings = <&kp LS(LC(V))>;
             key-positions = <22 23>;
+        };
+
+        gaming.t {
+            bindings = <&kp T>;
+            key-positions = <4 2>;
+        };
+
+        gaming.g {
+            bindings = <&kp G>;
+            key-positions = <12 14>;
+        };
+
+        gaming.b {
+            bindings = <&kp B>;
+            key-positions = <22 24>;
         };
     };
 
@@ -62,10 +72,10 @@
 
         sym {
             bindings = <
-&kp ESCAPE  &kp TILDE  &kp LBRC       &kp RBRC   &kp GRAVE      &kp SEMICOLON  &kp LBKT        &kp RBKT   &kp LPAR      &kp RPAR
-&kp EXCL    &kp AT     &kp HASH       &kp DLLR   &kp PERCENT    &kp MINUS      &sk LEFT_SHIFT  &sk LALT   &sk LEFT_GUI  &sk LEFT_CONTROL
-&kp CARET   &kp AMPS   &kp BACKSLASH  &kp SLASH  &kp PIPE       &kp EQUAL      &kp PLUS        &kp ASTRK  &kp QUESTION  &kp TILDE
-                                      &mo 3      &kp SPACE      &kp BACKSPACE  &trans
+&kp GRAVE             &kp TILDE              &kp LBRC          &kp RBRC           &kp MINUS    &kp UNDERSCORE  &kp LBKT        &kp RBKT   &kp LPAR      &kp RPAR
+&kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp EQUAL    &kp PLUS        &sk LEFT_SHIFT  &sk LALT   &sk LEFT_GUI  &sk LEFT_CONTROL
+&kp SEMICOLON         &kp COLON              &kp BACKSLASH     &kp PIPE           &trans       &kp EQUAL       &kp PLUS        &kp ASTRK  &kp QUESTION  &kp TILDE
+                                                               &mo 3              &kp SPACE    &kp BACKSPACE   &trans
             >;
         };
 
@@ -89,8 +99,8 @@
 
         gaming {
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E         &mt R T      &kp Y  &kp U   &kp I      &kp O    &kp P
-&kp LSHFT  &kp A  &kp S  &kp D         &mt F G      &kp H  &kp J   &kp K      &kp L    &kp SINGLE_QUOTE
+&kp TAB    &kp Q  &kp W  &kp E         &kp R        &kp Y  &kp U   &kp I      &kp O    &kp P
+&kp LSHFT  &kp A  &kp S  &kp D         &kp F        &kp H  &kp J   &kp K      &kp L    &kp SINGLE_QUOTE
 &kp LCTRL  &kp Z  &kp X  &kp C         &kp V        &kp N  &kp M   &kp COMMA  &kp DOT  &kp SLASH
                          &kp LEFT_ALT  &kp SPACE    &to 0  &trans
             >;
