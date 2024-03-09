@@ -56,16 +56,6 @@
             bindings = <&kp B>;
             key-positions = <22 24>;
         };
-
-        tab {
-            bindings = <&kp TAB>;
-            key-positions = <10 14>;
-        };
-
-        enter {
-            bindings = <&kp ENTER>;
-            key-positions = <20 24>;
-        };
     };
 
     keymap {
@@ -82,19 +72,19 @@
 
         numbers {
             bindings = <
-&kp N1            &kp N2        &kp N3    &kp N4          &kp N5       &kp N6         &kp N7          &kp N8    &kp N9        &kp N0
-&sk LEFT_CONTROL  &sk LEFT_GUI  &sk LALT  &sk LEFT_SHIFT  &kp F11      &kp F12        &sk LEFT_SHIFT  &sk LALT  &sk LEFT_GUI  &sk LEFT_CONTROL
-&kp F1            &kp F2        &kp F3    &kp F4          &kp F5       &kp F6         &kp F7          &kp F8    &kp F9        &kp F10
-                                          &trans          &kp SPACE    &kp BACKSPACE  &trans
+&kp N1            &kp N2        &kp N3    &kp N4          &kp N5        &kp N6         &kp N7          &kp N8    &kp N9        &kp N0
+&sk LEFT_CONTROL  &sk LEFT_GUI  &sk LALT  &sk LEFT_SHIFT  &kp F11       &kp F12        &sk LEFT_SHIFT  &sk LALT  &sk LEFT_GUI  &sk LEFT_CONTROL
+&kp F1            &kp F2        &kp F3    &kp F4          &kp F5        &kp F6         &kp F7          &kp F8    &kp F9        &kp F10
+                                          &trans          &kp DELETE    &kp BACKSPACE  &trans
             >;
         };
 
         sym {
             bindings = <
-&kp GRAVE      &kp TILDE  &kp LBRC              &kp RBRC               &kp GRAVE    &kp TILDE      &kp PLUS        &kp MINUS  &kp UNDER     &kp EQUAL
-&kp BACKSLASH  &kp PIPE   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp UNDER    &kp EQUAL      &sk LEFT_SHIFT  &sk LALT   &sk LEFT_GUI  &sk LEFT_CONTROL
-&kp SEMICOLON  &kp COLON  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans       &trans         &trans          &trans     &trans        &trans
-                                                &mo 1                  &kp SPACE    &kp BACKSPACE  &trans
+&kp ESCAPE     &kp BACKSLASH  &kp LBRC              &kp RBRC               &kp GRAVE    &kp TILDE      &kp PLUS        &kp MINUS  &kp UNDER     &kp EQUAL
+&kp COLON      &kp PIPE       &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans       &trans         &sk LEFT_SHIFT  &sk LALT   &sk LEFT_GUI  &sk LEFT_CONTROL
+&kp SEMICOLON  &trans         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans       &trans         &trans          &trans     &trans        &trans
+                                                    &mo 1                  &kp SPACE    &kp BACKSPACE  &trans
             >;
         };
 
