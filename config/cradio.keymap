@@ -1,153 +1,58 @@
-/*
- * Ferris Sweep Keymap Configuration
- *
- * This ZMK keymap is designed for the Ferris Sweep keyboard, incorporating a QWERTY-inspired layout
- * with ergonomic enhancements for long typing sessions, Vim-friendly key placements, and Mac compatibility.
- *
- * It includes:
- * - A Base Layer with standard alpha-numeric keys and custom Home Row Modifiers.
- * - A Number Layer accessible by holding the Left Inner Thumb key.
- * - A Symbol/Navigation Layer accessible by holding the Right Inner Thumb key.
- * - A dedicated Bluetooth & Reset Layer, momentarily activated by simultaneously pressing all four thumb keys.
- *
- * For compilation, save this file as a `.keymap` file (e.g., `ferris_sweep.keymap`)
- * and build it using the ZMK firmware build process, typically within a GitHub Actions workflow.
- */
-
-#include <dt-bindings/zmk/keys.h>         // Standard keycodes (e.g., Q, W, E, SPACE, ENTER)
-#include <dt-bindings/zmk/hid_usage.h>    // HID usage definitions
-#include <dt-bindings/zmk/hid_usage_pages.h>// HID usage page definitions
-#include <dt-bindings/zmk/modifiers.h>    // Modifier keys (e.g., LSHF, LCTRL, LALT, LGUI)
-#include <dt-bindings/zmk/bt.h>           // Bluetooth-specific keycodes (e.g., BT_CLR, BT_SEL)
-#include <dt-bindings/zmk/behaviors.h>     // ZMK behaviors (e.g., hold-tap, momentary layer)
-
 / {
-    // Define custom behaviors for hold-tap functionality
-    // This allows for consistent tapping-term and quick-tap settings across various hold-tap keys.
-    behaviors {
-        // Custom hold-tap behavior for Layer-Tap (LT) functionality
-        // Used for thumb keys: tap sends a key, hold activates a momentary layer.
-        layer_tap_behavior: hold-tap {
-            flavor = "balanced";       // Specifies the behavior's interaction characteristics
-            tapping-term-ms = <200>;   // Time in ms to distinguish between a tap and a hold
-            quick-tap-ms = <150>;      // Time in ms for a quick tap to activate immediately
-            bindings = <&kp>, <&mo>;   // First binding is for tap (key press), second for hold (momentary layer)
-        };
-
-        // Custom hold-tap behavior for Mod-Tap (MT) functionality
-        // Used for Home Row Mods: tap sends a key, hold sends a modifier.
-        mod_tap_behavior: hold-tap {
-            flavor = "balanced";       // Balanced flavor for ergonomic feel
-            tapping-term-ms = <200>;   // Consistent tapping term with layer-tap behavior
-            quick-tap-ms = <150>;      // Consistent quick tap with layer-tap behavior
-            bindings = <&kp>, <&mod_key>; // First binding for tap (key press), second for hold (modifier)
-        };
-    };
-
-    // Define key combinations (combos) that trigger specific actions.
     combos {
-        // Combo to activate the Bluetooth & Reset Layer.
-        // This combo is triggered by pressing all four thumb keys simultaneously.
+        // Four-thumb combo: momentary Bluetooth layer
         four_thumb_combo {
-            // The action triggered when the combo keys are pressed.
-            // `&mo BT_RESET_LAYER` makes the `BT_RESET_LAYER` momentary (active only while keys are held).
             bindings = <&mo BT_RESET_LAYER>;
-
-            // Define the physical key positions that make up this combo.
-            // These positions (`P28`, `P29`, `P30`, `P31`) are common illustrative examples
-            // for the four thumb keys on a Ferris Sweep.
-            // You may need to verify and adjust these based on your specific
-            // Ferris Sweep ZMK shield's physical key matrix mapping (often found in the `dts` file).
-            // P28: Left Inner Thumb
-            // P29: Left Outer Thumb
-            // P30: Right Inner Thumb
-            // P31: Right Outer Thumb
-            key-positions = <28 29 30 31>;
-
-            // `timeout-ms` helps prevent accidental activations. The combo must be pressed
-            // within this time window to register.
+            key-positions = <28 29 30 31>; // Confirm these match your thumb key positions
             timeout-ms = <50>;
-
-            // `require-primary` ensures that all keys in the combo must be part of the
-            // active layer's primary keymap (not just transparent pass-throughs from lower layers).
             require-primary;
         };
     };
 
-    // Define the keymap structure with different layers.
     keymap {
         compatible = "zmk,keymap";
 
-        // --- Layer 0: Default Layer (Base) ---
-        // This is the primary typing layer, inspired by QWERTY with ergonomic modifications.
-        default_layer {
+        // --- Layer 0: Base (QWERTY, Home Row Mods) ---
+        base_layer {
             bindings = <
-                // Left Hand Alpha Keys                                  // Right Hand Alpha Keys
-                &kp Q       &kp W       &kp E       &kp R       &kp T                               &kp Y       &kp U       &kp I       &kp O       &kp P
-                // Home Row Modifiers (tap for key, hold for modifier)
-                // Left Hand: A (no mod) | S (Shift) | D (Ctrl) | F (Alt) | G (GUI/Cmd)
-                &kp A       &mod_tap_behavior LSHF S    &mod_tap_behavior LCTRL D    &mod_tap_behavior LALT F     &mod_tap_behavior LGUI G
-                // Right Hand: H (GUI/Cmd) | J (Alt) | K (Ctrl) | L (Shift) | Semi (no mod)
-                &mod_tap_behavior RGUI H     &mod_tap_behavior RALT J     &mod_tap_behavior RCTRL K     &mod_tap_behavior RSHF L     &kp SEMI
-                // Left Hand Lower Row                                   // Right Hand Lower Row
-                &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &kp COMMA   &kp DOT     &kp SLASH
-                                                    // Thumb Keys (tap for key, hold for layer)
-                                                    // Left Inner: BSPC (tap) / NUM_LAYER (hold)
-                                                    &layer_tap_behavior NUM_LAYER BSPC
-                                                    // Left Outer: ESC
-                                                    &kp ESC
-                                                    // Right Inner: SPACE (tap) / SYM_LAYER (hold)
-                                                                                            &layer_tap_behavior SYM_LAYER SPACE
-                                                    // Right Outer: ENTER
-                                                                                            &kp ENTER
+                // Row 1
+                &kp Q     &kp W     &kp E     &kp R     &kp T         &kp Y     &kp U     &kp I     &kp O     &kp P
+                // Row 2 (Home Row Mods)
+                &kp A     &mt LSHF S &mt LCTRL D &mt LALT F &mt LGUI G &mt RGUI H &mt RALT J &mt RCTRL K &mt RSHF L &kp SEMI
+                // Row 3
+                &kp Z     &kp X     &kp C     &kp V     &kp B         &kp N     &kp M     &kp COMMA &kp DOT   &kp SLASH
+                // Thumbs: [L inner] [L outer] [R inner] [R outer]
+                &lt NUM_LAYER BSPC &kp ESC &lt SYM_LAYER SPACE &kp ENTER
             >;
         };
 
-        // --- Layer 1: Number Layer (NUM_LAYER) ---
-        // Activated by holding the Left Inner Thumb key.
-        // Provides easy access to numbers and function keys.
+        // --- Layer 1: Number Layer ---
         num_layer {
             bindings = <
-                // Numbers 1-5 on Left Top Row, 6-0 on Right Top Row
-                &kp N1      &kp N2      &kp N3      &kp N4      &kp N5                              &kp N6      &kp N7      &kp N8      &kp N9      &kp N0
-                // Function Keys F1-F5 on Left Home Row, F6-F10 on Right Home Row
-                &kp F1      &kp F2      &kp F3      &kp F4      &kp F5                              &kp F6      &kp F7      &kp F8      &kp F9      &kp F10
-                // Programming Symbols on Bottom Row
-                &kp F11     &kp F12     &kp LBKT    &kp MINUS   &kp EQUAL                           &kp RBKT    &kp BSLASH  &kp PIPE    &kp PLUS    &kp DOT
-                                                    // Transparent pass-through for thumb keys
-                                                    &trans                  &trans                  &trans                  &trans
+                &kp N1    &kp N2    &kp N3    &kp N4    &kp N5         &kp N6    &kp N7    &kp N8    &kp N9    &kp N0
+                &kp F1    &kp F2    &kp F3    &kp F4    &kp F5         &kp F6    &kp F7    &kp F8    &kp F9    &kp F10
+                &kp F11   &kp F12   &kp LBKT  &kp MINUS &kp EQUAL      &kp RBKT  &kp BSLASH &kp PIPE  &kp PLUS  &kp DOT
+                &trans    &trans    &trans    &trans
             >;
         };
 
-        // --- Layer 2: Symbol/Navigation Layer (SYM_LAYER) ---
-        // Activated by holding the Right Inner Thumb key.
-        // Provides common symbols and navigation (arrow) keys.
+        // --- Layer 2: Symbol/Navigation Layer ---
         sym_layer {
             bindings = <
-                // Navigation/Editing on Left Top Row, Symbols on Right Top Row
-                &kp HOME    &kp PG_UP   &kp PG_DN   &kp END     &kp INSERT                          &kp TILDE   &kp EXCL    &kp AT      &kp HASH    &kp DLLR
-                // Mirrored Brackets on Left Home Row for single-hand coding, More Symbols on Right
-                &kp LBRC    &kp RBRC    &kp LBRC    &kp RBRC    &trans                              &kp UNDER   &kp MINUS   &kp PLUS    &kp EQUAL   &kp BSLASH
-                // Arrow Cluster (ZXCV -> Arrows) on Left Bottom Row, More Symbols on Right
-                &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &kp DEL                             &kp GRAVE   &kp SQT     &kp DQT     &kp LT      &kp GT
-                                                    // Transparent pass-through for thumb keys
-                                                    &trans                  &trans                  &trans                  &trans
+                &kp HOME  &kp PG_UP &kp PG_DN &kp END   &kp INS        &kp TILDE &kp EXCL  &kp AT    &kp HASH  &kp DLLR
+                &kp LBRC  &kp RBRC  &kp LBRC  &kp RBRC  &trans         &kp UNDER &kp MINUS &kp PLUS  &kp EQUAL &kp BSLASH
+                &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp DEL        &kp GRAVE &kp SQT   &kp DQT   &kp LT    &kp GT
+                &trans    &trans    &trans    &trans
             >;
         };
 
-        // --- Layer 3: Bluetooth & Reset Layer (BT_RESET_LAYER) ---
-        // Momentary layer, activated by the `four_thumb_combo`.
-        // Contains Bluetooth management actions and system reset/bootloader functions.
+        // --- Layer 3: Bluetooth/Reset Layer (Momentary) ---
         bt_reset_layer {
             bindings = <
-                // Top Row (Left Unused, Right for BT Clear/Prev/Next)
-                &none       &none       &none       &none       &none                               &bt BT_CLR  &bt BT_PRV  &bt BT_NXT  &none       &none
-                // Home Row (Left Unused, Right for BT Slot Selection)
-                &none       &none       &none       &none       &none                               &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &none
-                // Bottom Row (Left Unused, Right for System Reset/Bootloader)
-                &none       &none       &none       &none       &none                               &none       &none       &none       &sys_reset  &bootloader
-                                                    // Transparent pass-through for thumb keys
-                                                    &trans                  &trans                  &trans                  &trans
+                &none     &none     &none     &none     &none          &bt BT_CLR &bt BT_PRV &bt BT_NXT &none    &none
+                &none     &none     &none     &none     &none          &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &none
+                &none     &none     &none     &none     &none          &none      &none      &none      &sys_reset &bootloader
+                &trans    &trans    &trans    &trans
             >;
         };
     };
