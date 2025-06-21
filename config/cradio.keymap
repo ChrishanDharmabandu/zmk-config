@@ -2,58 +2,52 @@
     keymap {
         compatible = "zmk,keymap";
 
-        // Layer 0: QWERTY base with home row mods, all thumbs momentary for settings
         default_layer {
             bindings = <
-                &kp Q     &kp W     &kp E     &kp R     &kp T           &kp Y     &kp U     &kp I     &kp O     &kp P
-                &hm LSFT  &hm LCTL  &hm LALT  &hm LGUI  &kp G           &kp H     &hm RGUI  &hm RALT  &hm RCTL  &hm RSFT
-                &kp Z     &kp X     &kp C     &kp V     &kp B           &kp N     &kp M     &kp COMMA &kp DOT   &kp SLASH
-                &mo settings_layer &mo settings_layer     &mo settings_layer &mo settings_layer
+                // Row 1 (5 left, 5 right)
+                &kp Q     &kp W     &kp E     &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O     &kp P
+                // Row 2
+                &hm LSFT  &hm LCTL  &hm LALT  &hm LGUI  &kp G     &kp H     &hm RGUI  &hm RALT  &hm RCTL  &hm RSFT
+                // Row 3
+                &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N     &kp M     &kp COMMA &kp DOT   &kp SLASH
+                // Thumbs (2 left, 2 right)
+                &mo settings_layer &mo settings_layer   &mo settings_layer &mo settings_layer
             >;
         };
 
-        // Layer 1: Numbers and F-keys (momentary, hold left inner thumb)
         num_layer {
             bindings = <
-                &kp 1     &kp 2     &kp 3     &kp 4     &kp 5           &kp 6     &kp 7     &kp 8     &kp 9     &kp 0
-                &kp F1    &kp F2    &kp F3    &kp F4    &kp F5          &kp F6    &kp F7    &kp F8    &kp F9    &kp F10
-                &kp F11   &kp F12   &kp LBKT  &kp MINUS &kp EQUAL       &kp RBKT  &kp BSLH  &kp PIPE  &kp PLUS  &kp DOT
-                &trans    &mo num_layer                        &trans    &trans
+                &kp 1     &kp 2     &kp 3     &kp 4     &kp 5     &kp 6     &kp 7     &kp 8     &kp 9     &kp 0
+                &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10
+                &kp F11   &kp F12   &kp LBKT  &kp MINUS &kp EQUAL &kp RBKT  &kp BSLH  &kp PIPE  &kp PLUS  &kp DOT
+                &trans    &mo num_layer       &mo num_layer &trans
             >;
         };
 
-        // Layer 2: Symbols/Navigation (momentary, hold right inner thumb)
         sym_layer {
             bindings = <
-                &kp HOME  &kp PG_UP &kp PG_DN &kp END   &kp INS         &kp TILDE &kp EXCL  &kp AT    &kp HASH  &kp DOLLAR
-                &kp LBKT  &kp RBKT  &kp LCBR  &kp RCBR  &kp PIPE        &kp UNDER &kp MINUS &kp PLUS  &kp EQUAL &kp BSLH
-                &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp DEL         &kp GRAVE &kp SQT   &kp DQT   &kp LT    &kp GT
-                &trans    &trans                         &mo sym_layer   &trans
+                &kp HOME  &kp PG_UP &kp PG_DN &kp END   &kp INS   &kp TILDE &kp EXCL  &kp AT    &kp HASH  &kp DOLLAR
+                &kp LBKT  &kp RBKT  &kp LCBR  &kp RCBR  &kp PIPE  &kp UNDER &kp MINUS &kp PLUS  &kp EQUAL &kp BSLH
+                &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp DEL   &kp GRAVE &kp SQT   &kp DQT   &kp LT    &kp GT
+                &trans    &mo sym_layer       &mo sym_layer &trans
             >;
         };
 
-        // Layer 3: Vim/Brackets (momentary, hold 'T' or 'Y')
         vim_layer {
             bindings = <
-                &kp LBKT  &kp RBKT  &kp BSLH  &kp SQT   &kp GRAVE       &kp LBKT  &kp RBKT  &kp BSLH  &kp SQT   &kp GRAVE
-                &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp DEL         &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp DEL
-                &kp PG_UP &kp PG_DN &kp END   &kp HOME  &trans          &kp PG_UP &kp PG_DN &kp END   &kp HOME  &trans
-                &trans    &trans                         &trans          &trans
+                &kp LBKT  &kp RBKT  &kp BSLH  &kp SQT   &kp GRAVE &kp LBKT  &kp RBKT  &kp BSLH  &kp SQT   &kp GRAVE
+                &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp DEL   &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp DEL
+                &kp PG_UP &kp PG_DN &kp END   &kp HOME  &trans    &kp PG_UP &kp PG_DN &kp END   &kp HOME  &trans
+                &trans    &trans             &trans    &trans
             >;
         };
 
-        // Layer 4: Settings/Bluetooth (momentary, all thumbs)
         settings_layer {
             bindings = <
-                &bootloader &bt CLR   &bt 0      &bt 1      &bt 2
-                &trans      &trans    &trans     &trans     &trans
-                &trans      &trans    &trans     &trans     &trans
-                &trans      &trans                &trans    &trans
-
-                &bt 3       &bt 4     &bt 5      &bootloader &trans
-                &trans      &trans    &trans     &trans      &trans
-                &trans      &trans    &trans     &trans      &trans
-                &trans      &trans                &trans     &trans
+                &bootloader &bt CLR   &bt 0      &bt 1      &bt 2      &bt 3      &bt 4      &bt 5      &bootloader &trans
+                &trans      &trans    &trans     &trans     &trans     &trans     &trans     &trans     &trans
+                &trans      &trans    &trans     &trans     &trans     &trans     &trans     &trans     &trans
+                &trans      &trans    &trans     &trans
             >;
         };
     };
