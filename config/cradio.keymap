@@ -4,49 +4,45 @@
 
         default_layer {
             bindings = <
-                // Row 1
-                &kp Q &kp W &kp E &kp R &kp T    &kp Y &kp U &kp I &kp O &kp P
-                // Row 2
-                &hm LGUI A &hm LALT S &hm LCTL D &hm LSFT F    &hm RGUI J &hm RALT K &hm RCTL L &hm RSFT SEMI
-                // Row 3
-                &kp Z &kp X &kp C &kp V &kp B    &kp N &kp M &kp COMMA &kp DOT &kp SLASH
-                // Thumbs (Left and Right)
+                &kp Q &kp W &kp E &kp R &kp T     &kp Y &kp U &kp I &kp O &kp P
+                &hm LGUI A &hm LALT S &hm LCTL D &hm LSFT F     &hm RGUI J &hm RALT K &hm RCTL L &hm RSFT SEMI
+                &kp Z &kp X &kp C &kp V &kp B     &kp N &kp M &kp COMMA &kp DOT &kp SLASH
                 &mo settings_layer &mo settings_layer &mo settings_layer &mo settings_layer
             >;
         };
 
         num_layer {
             bindings = <
-                &kp 1 &kp 2 &kp 3 &kp 4 &kp 5    &kp 6 &kp 7 &kp 8 &kp 9 &kp 0
-                &kp F1 &kp F2 &kp F3 &kp F4 &kp F5    &kp F6 &kp F7 &kp F8 &kp F9 &kp F10
-                &kp LBKT &kp RBKT &kp MINUS &kp EQUAL &kp BSLH    &kp COLON &kp PIPE &kp UNDER &kp PLUS &kp DOT
+                &kp 1 &kp 2 &kp 3 &kp 4 &kp 5     &kp 6 &kp 7 &kp 8 &kp 9 &kp 0
+                &kp F1 &kp F2 &kp F3 &kp F4 &kp F5     &kp F6 &kp F7 &kp F8 &kp F9 &kp F10
+                &kp LBKT &kp RBKT &kp MINUS &kp EQUAL &kp BSLH     &kp COLON &kp PIPE &kp UNDER &kp PLUS &kp DOT
                 &trans &trans &trans &trans
             >;
         };
 
         sym_layer {
             bindings = <
-                &kp EXCL &kp AT &kp HASH &kp DOLLAR &kp PERCENT    &kp CARET &kp AMPERSAND &kp STAR &kp LPAREN &kp RPAREN
-                &kp GRAVE &kp TILDE &kp PIPE &kp BSLH &kp BQUOTE    &kp DQT &kp SQT &kp LT &kp GT &kp EQUAL
-                &kp LBRC &kp RBRC &kp LBRKT &kp RBRKT &kp PLUS    &kp MINUS &kp UNDERSCORE &kp SLASH &kp BACKSPACE &kp DEL
+                &kp EXCL &kp AT &kp HASH &kp DOLLAR &kp PERCENT     &kp CARET &kp AMPS &kp ASTRK &kp LPAR &kp RPAR
+                &kp GRAVE &kp TILDE &kp PIPE &kp BSLH &kp BQUOTE     &kp DQT &kp SQT &kp LT &kp GT &kp EQUAL
+                &kp LBRC &kp RBRC &kp LBRKT &kp RBRKT &kp PLUS     &kp MINUS &kp UNDERSCORE &kp SLASH &kp BSPC &kp DEL
                 &trans &trans &trans &trans
             >;
         };
 
         vim_layer {
             bindings = <
-                &kp ESC &kp TAB &kp Q &kp W &kp E    &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp DEL
-                &kp A &kp S &kp D &kp F &kp G    &kp PG_UP &kp PG_DN &kp HOME &kp END &kp INS
-                &kp Z &kp X &kp C &kp V &kp B    &kp LGUI &kp LALT &kp LCTL &kp LSFT &trans
+                &kp ESC &kp TAB &kp Q &kp W &kp E     &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp DEL
+                &kp A &kp S &kp D &kp F &kp G     &kp PG_UP &kp PG_DN &kp HOME &kp END &kp INS
+                &kp Z &kp X &kp C &kp V &kp B     &kp LGUI &kp LALT &kp LCTL &kp LSFT &trans
                 &trans &trans &trans &trans
             >;
         };
 
         settings_layer {
             bindings = <
-                &bt 0 &bt 1 &bt 2 &bt 3 &bt 4    &bt 5 &bt CLR &bootloader &reset &trans
-                &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans
+                &bt 0 &bt 1 &bt 2 &bt 3 &bt 4     &bt 5 &bt CLR &bootloader &reset &trans
+                &trans &trans &trans &trans &trans     &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans     &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans
             >;
         };
