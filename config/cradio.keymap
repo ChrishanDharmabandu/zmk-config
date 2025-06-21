@@ -19,7 +19,7 @@
 #include <dt-bindings/zmk/hid_usage_pages.h>// HID usage page definitions
 #include <dt-bindings/zmk/modifiers.h>    // Modifier keys (e.g., LSHF, LCTRL, LALT, LGUI)
 #include <dt-bindings/zmk/bt.h>           // Bluetooth-specific keycodes (e.g., BT_CLR, BT_SEL)
-#include <dt-bindings/zmk/behavior.h>     // ZMK behaviors (e.g., hold-tap, momentary layer)
+#include <dt-bindings/zmk/behaviors.h>     // ZMK behaviors (e.g., hold-tap, momentary layer)
 
 / {
     // Define custom behaviors for hold-tap functionality
