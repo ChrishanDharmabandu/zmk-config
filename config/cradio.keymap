@@ -1,9 +1,8 @@
 / {
     combos {
-        // Four-thumb combo: momentary Bluetooth layer
         four_thumb_combo {
             bindings = <&mo BT_RESET_LAYER>;
-            key-positions = <28 29 30 31>; // Confirm these match your thumb key positions
+            key-positions = <28 29 30 31>;
             timeout-ms = <50>;
             require-primary;
         };
@@ -12,47 +11,40 @@
     keymap {
         compatible = "zmk,keymap";
 
-        // --- Layer 0: Base (QWERTY, Home Row Mods) ---
-        base_layer {
+        default_layer {
             bindings = <
-                // Row 1
-                &kp Q     &kp W     &kp E     &kp R     &kp T         &kp Y     &kp U     &kp I     &kp O     &kp P
-                // Row 2 (Home Row Mods)
-                &kp A     &mt LSHF S &mt LCTRL D &mt LALT F &mt LGUI G &mt RGUI H &mt RALT J &mt RCTRL K &mt RSHF L &kp SEMI
-                // Row 3
-                &kp Z     &kp X     &kp C     &kp V     &kp B         &kp N     &kp M     &kp COMMA &kp DOT   &kp SLASH
-                // Thumbs: [L inner] [L outer] [R inner] [R outer]
+                &kp Q &kp W &kp E &kp R &kp T         &kp Y &kp U &kp I &kp O &kp P
+                &kp A &mt LSHF S &mt LCTRL D &mt LALT F &mt LGUI G
+                &mt RGUI H &mt RALT J &mt RCTRL K &mt RSHF L &kp SEMI
+                &kp Z &kp X &kp C &kp V &kp B         &kp N &kp M &kp COMMA &kp DOT &kp SLASH
                 &lt NUM_LAYER BSPC &kp ESC &lt SYM_LAYER SPACE &kp ENTER
             >;
         };
 
-        // --- Layer 1: Number Layer ---
         num_layer {
             bindings = <
-                &kp N1    &kp N2    &kp N3    &kp N4    &kp N5         &kp N6    &kp N7    &kp N8    &kp N9    &kp N0
-                &kp F1    &kp F2    &kp F3    &kp F4    &kp F5         &kp F6    &kp F7    &kp F8    &kp F9    &kp F10
-                &kp F11   &kp F12   &kp LBKT  &kp MINUS &kp EQUAL      &kp RBKT  &kp BSLASH &kp PIPE  &kp PLUS  &kp DOT
-                &trans    &trans    &trans    &trans
+                &kp N1 &kp N2 &kp N3 &kp N4 &kp N5         &kp N6 &kp N7 &kp N8 &kp N9 &kp N0
+                &kp F1 &kp F2 &kp F3 &kp F4 &kp F5         &kp F6 &kp F7 &kp F8 &kp F9 &kp F10
+                &kp F11 &kp F12 &kp LBKT &kp MINUS &kp EQUAL      &kp RBKT &kp BSLASH &kp PIPE &kp PLUS &kp DOT
+                &trans &trans &trans &trans
             >;
         };
 
-        // --- Layer 2: Symbol/Navigation Layer ---
         sym_layer {
             bindings = <
-                &kp HOME  &kp PG_UP &kp PG_DN &kp END   &kp INS        &kp TILDE &kp EXCL  &kp AT    &kp HASH  &kp DLLR
-                &kp LBRC  &kp RBRC  &kp LBRC  &kp RBRC  &trans         &kp UNDER &kp MINUS &kp PLUS  &kp EQUAL &kp BSLASH
-                &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp DEL        &kp GRAVE &kp SQT   &kp DQT   &kp LT    &kp GT
-                &trans    &trans    &trans    &trans
+                &kp HOME &kp PG_UP &kp PG_DN &kp END &kp INSERT        &kp TILDE &kp EXCL &kp AT &kp HASH &kp DLLR
+                &kp LBRC &kp RBRC &kp LBRC &kp RBRC &trans             &kp UNDER &kp MINUS &kp PLUS &kp EQUAL &kp BSLASH
+                &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp DEL             &kp GRAVE &kp SQT &kp DQT &kp LT &kp GT
+                &trans &trans &trans &trans
             >;
         };
 
-        // --- Layer 3: Bluetooth/Reset Layer (Momentary) ---
         bt_reset_layer {
             bindings = <
-                &none     &none     &none     &none     &none          &bt BT_CLR &bt BT_PRV &bt BT_NXT &none    &none
-                &none     &none     &none     &none     &none          &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &none
-                &none     &none     &none     &none     &none          &none      &none      &none      &sys_reset &bootloader
-                &trans    &trans    &trans    &trans
+                &none &none &none &none &none           &bt BT_CLR &bt BT_PRV &bt BT_NXT &none &none
+                &none &none &none &none &none           &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &none
+                &none &none &none &none &none           &none &none &none &sys_reset &bootloader
+                &trans &trans &trans &trans
             >;
         };
     };
