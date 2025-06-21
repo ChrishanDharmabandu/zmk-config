@@ -4,15 +4,6 @@
 
 / {
     combos {
-        four_thumb_combo {
-            bindings = <&mo BT_RESET_LAYER>;
-            key-positions = <28 29 30 31>;
-            timeout-ms = <50>;
-            require-primary;
-        };
-    };
-
-    combos {
         compatible = "zmk,combos";
 
         tab {
